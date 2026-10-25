@@ -1,0 +1,36 @@
+{
+  "engine": {
+    "canonicalSource": "https://github.com/id-Software/DOOM",
+    "port": "https://github.com/ozkl/doomgeneric",
+    "commit": "e257a09527062bfb986b6e5e0780839b6cbd5b71",
+    "license": "GPL-2.0-or-later",
+    "sourceTree": "engine/vendor/doomgeneric",
+    "platformLayer": "engine/doomgeneric_memomind.c",
+    "modifiedFiles": [
+      "doomgeneric/doomgeneric.c",
+      "doomgeneric/d_loop.c",
+      "doomgeneric/i_system.c"
+    ]
+  },
+  "gameData": {
+    "project": "https://github.com/freedoom/freedoom",
+    "version": "0.11.3",
+    "license": "BSD-3-Clause",
+    "archiveSha256": "28a5eafbb1285b78937bd408fcdd8f25f915432340eee79da692eae83bce5e8a",
+    "wadSha256": "bc5739e88b20788845ce82ac0041effdecb4583ddbcdb05b9f899363eaa69892",
+    "note": "Complete Freedoom Phase 1 data preserved as its original ZIP DEFLATE stream. No levels are removed. This is not the commercial DOOM IWAD."
+  },
+  "compiler": {
+    "name": "Emscripten",
+    "version": "3.1.74",
+    "source": "https://github.com/emscripten-core/emsdk"
+  },
+  "javascriptDependencies": [
+    {
+      "name": "fflate",
+      "version": "0.8.2",
+      "source": "https://github.com/101arrowz/fflate",
+      "license": "MIT"
+    }
+  ]
+}

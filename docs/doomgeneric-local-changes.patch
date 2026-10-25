@@ -1,0 +1,61 @@
+diff --git a/doomgeneric/d_loop.c b/doomgeneric/d_loop.c
+index 1939dbd..0f747af 100644
+--- a/doomgeneric/d_loop.c
++++ b/doomgeneric/d_loop.c
+@@ -764,6 +764,10 @@ void TryRunTics (void)
+ 
+     // wait for new tics if needed
+ 
++#ifdef MEMOMIND
++    /* Modified for MemoMind, 2026: return to the nonblocking host scheduler. */
++    if (!PlayersInGame() || lowtic < gametic/ticdup + counts) return;
++#else
+     while (!PlayersInGame() || lowtic < gametic/ticdup + counts)
+     {
+ 	NetUpdate ();
+@@ -783,6 +787,7 @@ void TryRunTics (void)
+ 
+         I_Sleep(1);
+     }
++#endif
+ 
+     // run the count * ticdup dics
+     while (counts--)
+diff --git a/doomgeneric/doomgeneric.c b/doomgeneric/doomgeneric.c
+index 881d700..74ac7d1 100644
+--- a/doomgeneric/doomgeneric.c
++++ b/doomgeneric/doomgeneric.c
+@@ -18,7 +18,9 @@ void doomgeneric_Create(int argc, char **argv)
+ 
+ 	M_FindResponseFile();
+ 
+-	DG_ScreenBuffer = malloc(DOOMGENERIC_RESX * DOOMGENERIC_RESY * 4);
++	/* Modified for MemoMind, 2026: indexed pixels use their actual size. */
++	DG_ScreenBuffer = malloc(DOOMGENERIC_RESX * DOOMGENERIC_RESY * sizeof(*DG_ScreenBuffer));
++	if (DG_ScreenBuffer == NULL) abort();
+ 
+ 	DG_Init();
+ 
+diff --git a/doomgeneric/i_system.c b/doomgeneric/i_system.c
+index 53ab2c9..7f1ffb5 100644
+--- a/doomgeneric/i_system.c
++++ b/doomgeneric/i_system.c
+@@ -264,7 +264,8 @@ void I_Quit (void)
+ #endif
+ }
+ 
+-#if !defined(_WIN32) && !defined(__MACOSX__) && !defined(__DJGPP__)
++/* Modified for MemoMind, 2026: browser plugins never invoke a host shell. */
++#if !defined(_WIN32) && !defined(__MACOSX__) && !defined(__DJGPP__) && !defined(MEMOMIND)
+ #define ZENITY_BINARY "/usr/bin/zenity"
+ 
+ // returns non-zero if zenity is available
+@@ -454,7 +455,7 @@ void I_Error (char *error, ...)
+         exit(-1);
+     }
+ 
+-#else
++#elif !defined(MEMOMIND)
+     {
+         ZenityErrorBox(msgbuf);
+     }

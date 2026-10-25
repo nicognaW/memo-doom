@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.cache/
+.artifacts/
+vendor/gm-plugin-web-sdk.esm.js
+*.mmpkg
+*.gmp
+*.review-source.enc
+*.zip
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
