@@ -13,9 +13,9 @@
 ## 实际公开前的操作
 
 - [x] 从用户指定的 GitHub 账号获取维护者身份，建立按职责分组的当前时间提交；记录见 [COMMIT_HISTORY.md](COMMIT_HISTORY.md)。
-- [ ] 为 CI 提供 workflow 写入权限，按 [CI.md](CI.md) 启用并检查 GitHub Actions 实际结果。
+- [x] 通过用户已登录的浏览器启用 CI，首次 GitHub Actions 运行成功，见 [CI.md](CI.md)。
 - [ ] 如需分发含 MemoMind 组件的二进制，核实平台条款与配套组件分发权限。
 - [ ] 新的安装包完成真机扫码、HUD、触控、暂停/重连验证；随更新直接提供有效二维码。
 - [ ] 发布对应源码版本和许可通知，并保留产物 SHA-256。
 
-当前目录使用 Git 的 main 分支，维护者身份为用户指定账号的公开显示名与 GitHub noreply 地址。历史从认可的源码基线导入开始，未伪造过去开发日期；远程目标为 `nicognaW/memo-doom`；CI 以模板保留，未发布带平台组件的 GitHub Release。
+当前目录使用 Git 的 main 分支，维护者身份为用户指定账号的公开显示名与 GitHub noreply 地址。历史从认可的源码基线导入开始，未伪造过去开发日期；远程目标为 `nicognaW/memo-doom`；GitHub Actions 已启用并验证首次运行成功；未发布带平台组件的 GitHub Release。

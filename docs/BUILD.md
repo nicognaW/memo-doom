@@ -57,6 +57,6 @@ npm run test:browser
 npm run package
 ```
 
-可用 `CHROMIUM_EXECUTABLE` 指定本地 Chromium / Edge 完整路径。测试使用端口 4189，输出 `.artifacts/browser/`。需要浏览器和外部 SDK；[CI 模板](CI.md) 只包含不依赖平台的检查；当前因 workflow 写入权限不足暂未启用 Actions。
+可用 `CHROMIUM_EXECUTABLE` 指定本地 Chromium / Edge 完整路径。测试使用端口 4189，输出 `.artifacts/browser/`。需要浏览器和外部 SDK；[GitHub Actions](CI.md) 已启用，包含不依赖平台的真实引擎、资源和公开文件检查。
 
 手机包输出 `.artifacts/packages/memo-doom-0.1.5.mmpkg`。此包包含外部 SDK，属于本地构建产物，默认被 Git 忽略。它与原 Studio 接受包的逐字节一致性没有保证；游戏源代码及引擎基线保持 0.1.5。组合眼镜插件、安装二维码见 [INSTALL.md](INSTALL.md)。

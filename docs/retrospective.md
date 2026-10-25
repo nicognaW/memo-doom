@@ -17,11 +17,11 @@ Recorded on 2026-10-25 from this development conversation, the accepted source t
 
 ## Publication follow-up
 
-GitHub rejected both supplied credentials for workflow writes. For source publication, the workflow is retained as a template and is not active. The checks still run locally; see [CI status and activation](CI.md). Earlier references to wiring CI describe the local preparation stage, not a hosted run.
+GitHub initially rejected both supplied credentials for workflow writes, so the source was first published with a template. The maintainer later authorized use of the already signed-in Vivaldi session to activate the workflow. The first hosted run passed; see [current CI status](CI.md). Earlier references to unavailable hosted CI describe the preparation stage.
 
 ## Existing checks to retain
 
-The repository already had `test`, `verify:assets` and `test:browser` npm commands. This follow-up adds `verify:public` to the same npm/CI workflow; the SDK-free job now covers publication boundaries, first-party syntax, local documentation links, resources and engine/module behavior. The session recorded 34 passing module/engine tests, successful browser regression and same-toolchain engine outputs that matched across two directories. Those checks should be reused, not replaced with prose rules or duplicate assertions. See the current [package scripts](../package.json), [CI workflow](ci/test.yml) and [validation record](VALIDATION.md).
+The repository already had `test`, `verify:assets` and `test:browser` npm commands. This follow-up adds `verify:public` to the same npm/CI workflow; the SDK-free job now covers publication boundaries, first-party syntax, local documentation links, resources and engine/module behavior. The session recorded 34 passing module/engine tests, successful browser regression and same-toolchain engine outputs that matched across two directories. Those checks should be reused, not replaced with prose rules or duplicate assertions. See the current [package scripts](../package.json), [CI workflow](../.github/workflows/test.yml) and [validation record](VALIDATION.md).
 
 ## Information still needed
 

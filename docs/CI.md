@@ -1,10 +1,10 @@
 # CI status
 
-The source repository is prepared for public publication as [nicognaW/memo-doom](https://github.com/nicognaW/memo-doom). GitHub authenticated both supplied credentials, but rejected both pushes that included an active workflow because workflow write permission was unavailable.
+GitHub Actions is enabled for [nicognaW/memo-doom](https://github.com/nicognaW/memo-doom). The active configuration is [test.yml](../.github/workflows/test.yml); it runs on pushes, pull requests and manual dispatch, with `contents: read` permission.
 
-The complete configuration is retained in [ci/test.yml](ci/test.yml). It is a template, so it does not run in GitHub Actions. The original preparation commits remain in history; no development dates or passing CI results were invented.
+The [first hosted run](https://github.com/nicognaW/memo-doom/actions/runs/40190187069) passed on 2026-10-25 for commit `1f11fdf`, in 25 seconds. It installed locked dependencies, checked public files and module syntax, verified the game data, and ran the real-engine test suite. Browser Studio and physical-device tests remain separate checks.
 
-All checks can be run locally:
+Run the same checks locally:
 
 ```sh
 npm ci
@@ -13,4 +13,8 @@ npm run verify:assets
 npm test
 ```
 
-To activate the existing configuration, use a credential or the GitHub interface with permission to write workflows. Move `docs/ci/test.yml` to `.github/workflows/test.yml`, update references to the template, commit and push. Check the resulting Actions run before claiming hosted CI success. Source changes that precede activation do not receive automatic CI checks.
+## Publication history
+
+The two credentials supplied for initial publication authenticated successfully, but GitHub rejected workflow writes. The source was first published with a CI template. The maintainer then authorized use of the already signed-in Vivaldi session; the existing configuration was committed through GitHub's editor and ran successfully. Those earlier limitations describe the initial publication stage, not the current CI state.
+
+GitHub reported a deprecation warning for the Node 20 runtime targeted by `actions/checkout@v4` and `actions/setup-node@v4`, plus an Ubuntu runner-image migration notice. These did not fail the first run. The workflow sets Node.js 22 for the project tests.
