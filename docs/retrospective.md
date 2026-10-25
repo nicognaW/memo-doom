@@ -15,9 +15,13 @@ Recorded on 2026-10-25 from this development conversation, the accepted source t
 | Low | Broad output reads printed minified/generated data and thousands of upstream whitespace findings, which hid useful errors. | Use bounded file reads, counts and hashes for generated artifacts. Scope first-party whitespace checks separately from the preserved upstream snapshot. | Applied during preparation; this is a tool-use improvement, not a new coding convention. |
 | Low | The old external pair checker rejected review v3, while independent ZIP and component-hash checks succeeded. | Discover checker/schema support before invoking it, and keep each result's scope in the delivery receipt. | The limitation is documented in `docs/INSTALL.md`; no failed check was relabeled as passing. |
 
+## Publication follow-up
+
+GitHub rejected both supplied credentials for workflow writes. For source publication, the workflow is retained as a template and is not active. The checks still run locally; see [CI status and activation](CI.md). Earlier references to wiring CI describe the local preparation stage, not a hosted run.
+
 ## Existing checks to retain
 
-The repository already had `test`, `verify:assets` and `test:browser` npm commands. This follow-up adds `verify:public` to the same npm/CI workflow; the SDK-free job now covers publication boundaries, first-party syntax, local documentation links, resources and engine/module behavior. The session recorded 34 passing module/engine tests, successful browser regression and same-toolchain engine outputs that matched across two directories. Those checks should be reused, not replaced with prose rules or duplicate assertions. See the current [package scripts](../package.json), [CI workflow](../.github/workflows/test.yml) and [validation record](VALIDATION.md).
+The repository already had `test`, `verify:assets` and `test:browser` npm commands. This follow-up adds `verify:public` to the same npm/CI workflow; the SDK-free job now covers publication boundaries, first-party syntax, local documentation links, resources and engine/module behavior. The session recorded 34 passing module/engine tests, successful browser regression and same-toolchain engine outputs that matched across two directories. Those checks should be reused, not replaced with prose rules or duplicate assertions. See the current [package scripts](../package.json), [CI workflow](ci/test.yml) and [validation record](VALIDATION.md).
 
 ## Information still needed
 
