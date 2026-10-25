@@ -1,0 +1,29 @@
+{
+  "version": "0.1.5",
+  "algorithm": "sha256",
+  "files": {
+    "index.html": "a56a4dfa6ee7cffb8d92db4f91d9f2b5f24cc5487a360dc19d04fd9012b9aa41",
+    "style.css": "99f2ab641c9b7134dc3d9e0fb3f3e656d801a7a595aea12f067aecd369d1da80",
+    "manifest.json": "699905303998860f345c6c4d3a9daffafae6dc214fa20e53a17ab3d4859aa64d",
+    "vendor/fflate.js": "8cc1f687e0159e977addb6b85e274dbd11e622cf151f4fcb7b85d49622ea43e7",
+    "assets/freedoom1.wad.deflate": "4d3ae3025e68b1375e98b84de40bc4fde0e9e4f97219a1b79fca1cbdbf775aa1",
+    "engine/doomgeneric_memomind.c": "26fe5a8cdf3736d9a5f96f2ef470e815df5026f0aec56688dedd7cc45f7d024a",
+    "src/controller.js": "dc5809e2e2fca3adb8bea70452fba04ace38728bafc5c1444f882344348b4ec4",
+    "src/engine-client.js": "606158a5e127f2ab19798e8a304770682a0eb914cd8b7a1f157463ba1d5874f4",
+    "src/engine-core.js": "01e595029e1399d53ced141ea213cffa444c3e20d1b669da6192ff79b7f2e91e",
+    "src/engine-loader.js": "79d04316f72ea8fde8e3e73cc84b9b704f02f875109f742561584c66cad9d1ed",
+    "src/engine.worker.js": "905a361e4f6d2fa0522140310c7a754e6a594e7251facb664accd49e07c6a468",
+    "src/frame-codec.js": "9bc578e4b103edb187503f666126bb6e558de788de42d7bc3d16e5ba87fbe8e5",
+    "src/glass-display.js": "ace13ada2fd3608f9365acd43dd058c74029bf76ac8b063380b2996d4cc9b6d6",
+    "src/hud.js": "f90b3985622f63775fed236a021a4f6e488d871dd4cad095cec8d471366d53f5",
+    "src/lz4.js": "698c8d6362204d0ebdb8effad50fb87edfe1bf31dfbe96e10ea5480c1ae859ff",
+    "src/plugin.js": "ddc577f762cb894ffff672956f64ad3c901597345dd496865655334032dc0787",
+    "src/wad.js": "fb74b2027e30bb3007f7d4627c6dbecb2fbb936418f49c99ce82a258c5c31c20"
+  },
+  "originalPrivateBuildEngineHashes": {
+    "engine/doom.js": "5a73a40037fcc34601449d7fb39f5911ee78b560be056063edf464606706fd87",
+    "engine/doom.wasm": "cd1d02170c9c6d370973a4f1379b1756332b1128198b538f770484469b220584",
+    "engine/doom-js.js": "74c2a1ff89d622bb60208029da4890d858cd0f2dad7f6629ad89390cbdd4ee1e"
+  },
+  "note": "Gameplay sources preserved. Public engine is rebuilt using relative compiler inputs to remove local paths; original engine hashes are provenance only."
+}

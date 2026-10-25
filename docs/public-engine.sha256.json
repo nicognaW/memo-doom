@@ -1,0 +1,9 @@
+{
+  "compiler": "Emscripten 3.1.74",
+  "algorithm": "sha256",
+  "files": {
+    "engine/doom.js": "5a73a40037fcc34601449d7fb39f5911ee78b560be056063edf464606706fd87",
+    "engine/doom.wasm": "8a920c07a914a4604b4930235bf44d4bfca59679d3297cdc1faf90983a26d7d9",
+    "engine/doom-js.js": "b6e7816890b1d3684a8752464ac65f6426c83fbb398e6d9492df3e8afe8a143c"
+  }
+}

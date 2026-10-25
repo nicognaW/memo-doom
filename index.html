@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100e0c">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>DOOM Controller</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">MEMOMIND · 本地引擎</p>
+        <h1>DOOM <span>Controller</span></h1>
+      </div>
+      <p class="header-note">手机运算 · 眼镜灰度显示</p>
+    </header>
+
+    <p id="status" class="status" role="status" aria-live="polite">正在连接 MemoMind Bridge…</p>
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <section id="setup-panel" class="setup-panel" aria-labelledby="setup-title">
+      <div class="setup-copy">
+        <p class="section-index">01 / 游戏资源</p>
+        <h2 id="setup-title">选择完整 IWAD</h2>
+        <p id="source-detail">内置 Freedoom 0.11.3 Phase 1，BSD 许可，完整游戏资源；不是原版商业 WAD。</p>
+        <p class="fine-print">也可导入你合法持有的 DOOM / DOOM II IWAD。仅支持 IWAD，不支持 PWAD，文件最大 32 MiB。</p>
+      </div>
+      <div class="setup-actions">
+        <button id="start-game" class="primary" type="button" disabled>启动 DOOM</button>
+        <div class="button-row">
+          <button id="import-wad" type="button" disabled>导入 IWAD</button>
+          <button id="use-default" type="button">使用内置资源</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="gamepad" class="gamepad" aria-label="DOOM 触控手柄" hidden>
+      <section id="combat-hud" class="combat-hud" aria-label="实时战斗状态" data-freshness="waiting">
+        <div class="hud-health"><span>生命 HP</span><strong id="hud-health">—</strong></div>
+        <div class="hud-armor"><span>护甲</span><strong id="hud-armor">—</strong></div>
+        <div class="hud-ammo"><span>当前弹药</span><strong id="hud-ammo">—</strong></div>
+        <div class="hud-weapon"><span>当前武器</span><strong id="hud-weapon">等待进入关卡</strong></div>
+        <div class="hud-notice"><p id="hud-keys">钥匙 · —</p><p id="hud-hint" role="status">等待进入关卡</p></div>
+      </section>
+      <div class="session-bar">
+        <div class="menu-shortcuts">
+          <button class="control compact" type="button" data-key="ESCAPE">菜单 <small>ESC</small></button>
+          <button class="control compact enter" type="button" data-key="ENTER">确认 <small>ENTER</small></button>
+        </div>
+        <label class="quality-control" for="quality">眼镜画质
+          <select id="quality">
+            <option value="smooth">流畅 160×100细节（推荐）</option>
+            <option value="native">原生 320×200</option>
+            <option value="full">全屏 560×350</option>
+          </select>
+        </label>
+        <div class="button-row">
+          <button id="pause-game" type="button">暂停</button>
+          <button id="resume-game" class="primary" type="button">继续</button>
+        </div>
+      </div>
+
+      <div class="controls-layout">
+        <section class="control-group movement" aria-label="移动与转向">
+          <h2>移动 / 转向</h2>
+          <div class="dpad">
+            <span></span>
+            <button class="control direction" type="button" data-key="UP" aria-label="前进">前进</button>
+            <span></span>
+            <button class="control direction" type="button" data-key="LEFT" aria-label="向左转向">左转</button>
+            <button class="control modifier" type="button" data-key="STRAFE" data-toggle="true" role="switch" aria-checked="false" aria-label="横移开关">横移<small data-toggle-label>已关</small></button>
+            <button class="control direction" type="button" data-key="RIGHT" aria-label="向右转向">右转</button>
+            <span></span>
+            <button class="control direction" type="button" data-key="DOWN" aria-label="后退">后退</button>
+            <span></span>
+          </div>
+          <p class="hint">横移开启后，左右键改为横移；关闭后恢复转向。</p>
+        </section>
+
+        <section class="control-group system-controls" aria-label="武器和菜单">
+          <h2>武器</h2>
+          <div class="weapon-grid">
+            <button class="control compact" type="button" data-key="1">1<small>近战</small></button>
+            <button class="control compact" type="button" data-key="2">2<small>手枪</small></button>
+            <button class="control compact" type="button" data-key="3">3<small>霰弹</small></button>
+            <button class="control compact" type="button" data-key="4">4<small>机枪</small></button>
+            <button class="control compact" type="button" data-key="5">5<small>火箭</small></button>
+            <button class="control compact" type="button" data-key="6">6<small>等离子</small></button>
+            <button class="control compact" type="button" data-key="7">7<small>BFG</small></button>
+          </div>
+          <h2>地图 / 问答</h2>
+          <div class="system-grid">
+            <button class="control compact" type="button" data-key="MAP">地图</button>
+            <button class="control compact" type="button" data-key="y">是 / Y</button>
+            <button class="control compact" type="button" data-key="n">否 / N</button>
+          </div>
+          <p class="hint">支持多触点；桌面可用方向键、Ctrl、Shift、Alt、Tab、Enter、Esc、P。</p>
+        </section>
+
+        <section class="control-group action-controls" aria-label="战斗操作">
+          <h2>战斗</h2>
+          <button class="control fire" type="button" data-key="FIRE" aria-label="开火，松开停止">开火<small>松开停止</small></button>
+          <div class="action-row">
+            <button class="control action" type="button" data-key="USE">使用<small>开门 / 重开</small></button>
+            <button class="control action" type="button" data-key="RUN" data-toggle="true" role="switch" aria-checked="false" aria-label="奔跑开关">奔跑<small data-toggle-label>已关</small></button>
+          </div>
+          <p class="hint">开火松手即停；奔跑点按开关。</p>
+        </section>
+      </div>
+    </section>
+
+    <details class="diagnostics" id="diagnostics">
+      <summary>连接与诊断</summary>
+      <section class="status-strip" aria-label="运行信息">
+        <div><span>资源</span><strong id="source-name">Freedoom 0.11.3 · Phase 1</strong></div>
+        <div><span>后端</span><strong id="backend">未启动</strong></div>
+        <div><span>连接</span><strong id="connection">等待 Bridge</strong></div>
+        <div><span>显示发送</span><strong id="telemetry">尚未发送</strong></div>
+      </section>
+      <p class="fine-print">发送统计为逻辑指令结果，不代表真机面板刷新率。手机 HUD 直接读取引擎状态，不增加蓝牙消息。</p>
+    </details>
+    <footer>手机大字状态 · 点按开关 · 眼镜专注视野 · 无音频</footer>
+  </main>
+  <script type="module" src="./src/plugin.js"></script>
+</body>
+</html>
