@@ -1,4 +1,4 @@
-# DOOM Controller
+# memo-doom
 
 These terms describe play, display and installation for the phone controller and MemoMind glasses.
 

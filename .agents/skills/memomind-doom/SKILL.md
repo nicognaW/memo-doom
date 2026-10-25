@@ -1,9 +1,9 @@
 ---
 name: memomind-doom
-description: Set up DOOM Controller, preview with the external MemoMind SDK, rebuild its engine, change controls or HUD, or deliver a paired installation package and usable install QR code.
+description: Set up memo-doom, preview with the external MemoMind SDK, rebuild its engine, change controls or HUD, or deliver a paired installation package and usable install QR code.
 ---
 
-# DOOM Controller
+# memo-doom
 
 Use the repository root as the working directory. Read [GLOSSARY.md](../../../GLOSSARY.md) for domain terms. Commands, dependency versions, and declared platform capabilities come from `package.json`, `manifest.json`, and the build tools; the linked documents explain their use.
 

@@ -1,4 +1,4 @@
-# DOOM Controller for MemoMind
+# memo-doom
 
 [English](README.md)
 

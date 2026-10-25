@@ -1,4 +1,4 @@
-# DOOM Controller for MemoMind
+# memo-doom
 
 [中文说明](README.zh-CN.md)
 
