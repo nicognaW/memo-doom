@@ -19,7 +19,7 @@
 
 截图见 [手机 HUD](images/phone-hud.png)，来自 Browser Studio 模拟器，不代表实体眼镜的光学可读性。浏览器测试的详细输出和全套截图写到本地忽略目录 `.artifacts/`，不会把本机日志提交到 Git。
 
-README 的 [眼镜画面动图](images/glasses-gameplay.gif) 录自真实 WASM 引擎运行的 Browser Studio `device-canvas`，使用完整 Freedoom Phase 1 和流畅画质。录制覆盖真实移动、转向及开火，弹药从 50 减至 41，浏览器无运行时异常；64 次画布采样编码为 63 个 GIF 帧（相同帧合并），600×350 像素，约 10.9 秒、695 KiB。绿色调来自模拟显示器，未叠加虚构眼镜硬件外观；采样帧率不代表实体显示速度。这不是新的实机安装验收。
+README 的 [眼镜画面动图](images/glasses-gameplay.gif) 录自真实 WASM 引擎运行的 Browser Studio `device-canvas`，使用完整 Freedoom Phase 1 和流畅画质。录制覆盖真实移动、转向及开火，弹药从 50 减至 41，浏览器无运行时异常；64 次画布采样编码为 63 个 GIF 帧（相同帧合并），裁除外围空白后的 320×200 像素，约 10.9 秒。绿色调来自模拟显示器，未叠加虚构眼镜硬件外观；采样帧率不代表实体显示速度。这不是新的实机安装验收。
 
 ## 已有真机反馈
 

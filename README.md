@@ -14,7 +14,7 @@ Version **0.1.5** includes the complete **Freedoom Phase 1 0.11.3** game data. C
 
 ### Phone controller
 
-<img src="docs/images/phone-hud.png" width="300" alt="Phone controller with large health, armor, and ammo values above the movement and fire buttons">
+<img src="docs/images/phone-hud.png" width="740" alt="Phone controller with large health, armor, and ammo values above the movement and fire buttons">
 
 *Phone HUD in Browser Studio. This screenshot is a simulation, not a photo through the glasses.*
 

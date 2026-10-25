@@ -14,7 +14,7 @@
 
 ### 手机手柄
 
-<img src="docs/images/phone-hud.png" width="300" alt="手机手柄界面：顶部大字显示生命、护甲和弹药，下方是方向、开火和武器按钮">
+<img src="docs/images/phone-hud.png" width="740" alt="手机手柄界面：顶部大字显示生命、护甲和弹药，下方是方向、开火和武器按钮">
 
 *截图来自 Browser Studio 模拟器，不是透过实体眼镜拍摄的画面。*
 
