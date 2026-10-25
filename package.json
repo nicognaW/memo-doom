@@ -1,0 +1,25 @@
+{
+  "name": "memomind-doom-controller",
+  "version": "0.1.5",
+  "private": true,
+  "type": "module",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "assets": "python tools/fetch-assets.py",
+    "build": "node tools/build-app.mjs",
+    "build:engine": "node tools/build-engine.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "preview": "node tools/preview.mjs",
+    "package": "node tools/package.mjs",
+    "test:browser": "node tests/browser-smoke.mjs",
+    "verify:assets": "node tools/verify-assets.mjs",
+    "verify:public": "node tools/verify-public.mjs"
+  },
+  "description": "Phone-hosted DOOM engine and touch controller for MemoMind glasses, with Freedoom Phase 1",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

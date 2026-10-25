@@ -1,0 +1,10 @@
+import { mkdirSync, readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { sdkRoot } from './platform-sdk.mjs';
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const manifest = JSON.parse(readFileSync(resolve(root, 'manifest.json'), 'utf8'));
+const { buildMmpkg } = await import(pathToFileURL(resolve(sdkRoot(), 'PhoneSDK/tools/build-mmpkg.mjs')).href);
+mkdirSync(resolve(root, '.artifacts/packages'), { recursive: true });
+const result = await buildMmpkg(resolve(root, 'dist'), resolve(root, `.artifacts/packages/doom-controller-${manifest.version}.mmpkg`));
+console.log(JSON.stringify(result, null, 2));
