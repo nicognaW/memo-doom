@@ -6,6 +6,14 @@
 
 当前版本 **0.1.5**，内置完整 **Freedoom Phase 1 0.11.3**，不包含商业 DOOM / DOOM II 数据。这是社区项目，并非 MemoMind 或 id Software 官方产品。
 
+### 眼镜画面
+
+![眼镜虚拟显示器中的 Freedoom 实际游戏画面：移动、转向和开火](docs/images/glasses-gameplay.gif)
+
+*动图录自 Browser Studio 的眼镜虚拟显示器，真实游戏引擎运行，使用流畅画质。它是模拟器录制，不是透过实体眼镜拍摄的视频。动图按约每秒 6 帧采样，不代表硬件刷新率。*
+
+### 手机手柄
+
 <img src="docs/images/phone-hud.png" width="300" alt="手机手柄界面：顶部大字显示生命、护甲和弹药，下方是方向、开火和武器按钮">
 
 *截图来自 Browser Studio 模拟器，不是透过实体眼镜拍摄的画面。*

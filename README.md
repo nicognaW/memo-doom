@@ -6,6 +6,14 @@ Play DOOM on MemoMind glasses. Your phone runs the game and acts as the touch co
 
 Version **0.1.5** includes the complete **Freedoom Phase 1 0.11.3** game data. Commercial DOOM and DOOM II game data are not included. This is a community project, independent of MemoMind and id Software.
 
+### Glasses view
+
+![Freedoom gameplay on the virtual glasses display: movement, turning, and firing](docs/images/glasses-gameplay.gif)
+
+*Real game output recorded from Browser Studio's virtual glasses display in Smooth mode. This is a simulator recording, not footage through physical glasses. The GIF is sampled at about 6 frames per second; it does not measure hardware refresh.*
+
+### Phone controller
+
 <img src="docs/images/phone-hud.png" width="300" alt="Phone controller with large health, armor, and ammo values above the movement and fire buttons">
 
 *Phone HUD in Browser Studio. This screenshot is a simulation, not a photo through the glasses.*
